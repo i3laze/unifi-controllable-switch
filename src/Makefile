@@ -69,7 +69,7 @@ mips/$(QEMU_ROOTBASE):
 	cd mips && wget -c https://people.debian.org/~aurel32/qemu/mips/$(QEMU_ROOTBASE)
 
 mips/$(QEMU_ROOTWORK): mips/$(QEMU_ROOTBASE)
-	qemu-img create -f qcow2 -o backing_file=$(QEMU_ROOTBASE) $@
+	qemu-img create -f qcow2 -o backing_file=/mips/$(QEMU_ROOTBASE) $@
 
 mips/$(QEMU_KERNEL):
 	@mkdir -p mips
