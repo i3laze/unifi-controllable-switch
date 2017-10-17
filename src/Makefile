@@ -66,14 +66,14 @@ QEMU_PACKAGES = gcc make dietlibc-dev
 
 mips/$(QEMU_ROOTBASE):
 	@mkdir -p mips
-	cd mips && wget -c https://people.debian.org/~aurel32/qemu/mips/$(QEMU_ROOTBASE)
+	cd mips && wget -c https://people.debian.org/~aurel32/qemu/mips/$(QEMU_ROOTBASE) --no-check-certificate
 
 mips/$(QEMU_ROOTWORK): mips/$(QEMU_ROOTBASE)
 	qemu-img create -f qcow2 -o backing_file=$(QEMU_ROOTBASE) $@
 
 mips/$(QEMU_KERNEL):
 	@mkdir -p mips
-	cd mips && wget -c https://people.debian.org/~aurel32/qemu/mips/$(QEMU_KERNEL)
+	cd mips && wget -c https://people.debian.org/~aurel32/qemu/mips/$(QEMU_KERNEL) --no-check-certificate
 
 dist.src.tar.gz: Makefile $(FILES) $(HEADERS)
 	tar -c -z -f $@ Makefile $(FILES) $(HEADERS)
